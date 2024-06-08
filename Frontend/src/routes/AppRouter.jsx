@@ -4,6 +4,7 @@ import SignIn from "../pages/SignIn";
 import Profile from "../pages/Profile";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./ProtectedRoute";
+import SignUp from "../pages/SignUp";
 
 function AppRouter() {
   // Retrieve the token from the store
@@ -19,6 +20,15 @@ function AppRouter() {
             // Block access to the SignIn page if the user is logged in
             <ProtectedRoute token={!token} redirectPath="/profile">
               <SignIn />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/sign-up"
+          element={
+            // Block access to the SignIn page if the user is logged in
+            <ProtectedRoute token={!token} redirectPath="/profile">
+              <SignUp />
             </ProtectedRoute>
           }
         />

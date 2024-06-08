@@ -3,6 +3,7 @@ import Logo from "../../components/Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
+  faUserPlus,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Menu.style.css";
@@ -22,10 +23,16 @@ function Menu() {
       <div className="main-nav-item">
         {/* Conditions the rendering of the menu */}
         {!token ? (
-          <NavLink className="main-nav-item" to="/sign-in">
-            <FontAwesomeIcon icon={faCircleUser} />
-            <span> Sign In</span>
-          </NavLink>
+          <>
+            <NavLink className="main-nav-item" to="/sign-in">
+              <FontAwesomeIcon icon={faCircleUser} />
+              <span> Sign In</span>
+            </NavLink>
+            <NavLink className="main-nav-item" to="/sign-up">
+              <FontAwesomeIcon icon={faUserPlus} />
+              <span> Sign Up</span>
+            </NavLink>
+          </>
         ) : (
           <>
             <NavLink className="main-nav-item" to="/profile">

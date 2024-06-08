@@ -15,6 +15,12 @@ export const login = createAsyncThunk(
   }
 );
 
+// Register a new account
+export const register = createAsyncThunk("user/register", async (ids) => {
+  const res = await axios.post("http://localhost:3001/api/v1/user/signup", ids);
+  return res.data.body.token;
+});
+
 // Send token to API and return userData
 const getUserData = createAsyncThunk("user/getUserData", async (token) => {
   const res = await axios.post(
@@ -67,11 +73,17 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.loginStatus = "succeeded";
         state.token = action.payload;
       })
-      .addCase(login.rejected, (state, action) => {
-        state.status = "failed";
+      .addCase(login.rejected, (state) => {
+        state.loginStatus = "failed";
+      })
+      .addCase(register.fulfilled, (state) => {
+        state.registerStatus = "succeeded";
+      })
+      .addCase(register.rejected, (state) => {
+        state.registerStatus = "failed";
       })
       .addCase(getUserData.fulfilled, (state, action) => {
         state.userData = action.payload;

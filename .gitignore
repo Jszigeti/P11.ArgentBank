@@ -48,3 +48,8 @@ config/runtime.yaml
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Project files
+Projet_11_Szigeti_Jonas.zip
+Szigeti_Jonas_1_code_phase_1_052024.pdf
+Szigeti_Jonas_2_swagger_phase_2_052024.yaml

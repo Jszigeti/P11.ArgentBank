@@ -3,7 +3,7 @@ import userSlice from "../slices/userSlice";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-// Fonction to build persistor configuration based on rememberMe state
+// Fonction to build persisted reducer configuration based on rememberMe state
 const getPersistConfig = (rememberMe) => ({
   key: "root",
   storage,
@@ -19,9 +19,10 @@ const rootReducer = combineReducers({
   user: userSlice,
 });
 
-// Configure the persistor
+// Build persisted reducer configuration
 const persistConfig = getPersistConfig(rememberMe);
 
+// Configure persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Configure the store
@@ -36,7 +37,7 @@ export const store = configureStore({
 // Configure the persistStore
 export const persistor = persistStore(store);
 
-// Function to reconfigure persistence
+// Function to reconfigure persisted reducer
 export const reconfigurePersistor = (rememberMe) => {
   persistor.pause();
   const newPersistConfig = getPersistConfig(rememberMe);

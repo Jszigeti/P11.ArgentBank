@@ -87,7 +87,9 @@ function Register() {
               onChange={(e) => setUserName(e.target.value)}
             />
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit" className="sign-in-button">
+            Sign Up
+          </button>
         </form>
         <p>
           Already have an account ?{" "}

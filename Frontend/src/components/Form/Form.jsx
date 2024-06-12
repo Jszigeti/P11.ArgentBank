@@ -70,7 +70,9 @@ function Form() {
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>
-          <button type="submit">Sign In</button>
+          <button type="submit" className="sign-in-button">
+            Sign In
+          </button>
         </form>
         <p>
           Not registred yet ?{" "}
